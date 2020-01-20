@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DatabasesAssignment.Admin
-{
-
-
-    public partial class AddPerformer
-    {
-
+namespace DatabasesAssignment.Admin {
+    
+    
+    public partial class AddVenue {
+        
         /// <summary>
         /// errorContainer control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace DatabasesAssignment.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorContainer;
-
+        
         /// <summary>
         /// errorAlert control.
         /// </summary>
@@ -31,23 +29,41 @@ namespace DatabasesAssignment.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorAlert;
-
+        
         /// <summary>
-        /// perfName control.
+        /// venueName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox perfName;
-
+        protected global::System.Web.UI.WebControls.TextBox venueName;
+        
         /// <summary>
-        /// btnAddPerformer control.
+        /// venueAddr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddPerformer;
+        protected global::System.Web.UI.WebControls.TextBox venueAddr;
+        
+        /// <summary>
+        /// venueCap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox venueCap;
+        
+        /// <summary>
+        /// btnAddVenue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddVenue;
     }
 }

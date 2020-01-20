@@ -11,7 +11,7 @@ namespace DatabasesAssignment.Admin
 {
 
 
-    public partial class AddPerformer
+    public partial class ShowEventOrders
     {
 
         /// <summary>
@@ -33,21 +33,21 @@ namespace DatabasesAssignment.Admin
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorAlert;
 
         /// <summary>
-        /// perfName control.
+        /// eventSelect control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox perfName;
+        protected global::System.Web.UI.WebControls.DropDownList eventSelect;
 
         /// <summary>
-        /// btnAddPerformer control.
+        /// result control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddPerformer;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl result;
     }
 }

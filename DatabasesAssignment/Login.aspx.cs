@@ -24,6 +24,7 @@ namespace DatabasesAssignment
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@Username", login.Text);
                         cmd.Parameters.AddWithValue("@Password", password.Text);
+                        cmd.Parameters.Add("@LoggedInUser", SqlDbType.NVarChar, 50).Direction = ParameterDirection.Output;
                         cmd.Parameters.Add("@UserId", SqlDbType.Int).Direction = ParameterDirection.Output;
                         cmd.Parameters.Add("@IsAdmin", SqlDbType.Bit).Direction = ParameterDirection.Output;
                         conn.Open();
@@ -33,6 +34,7 @@ namespace DatabasesAssignment
                             Session["loggedin"] = true;
                             Session["userid"] = cmd.Parameters["@UserId"].Value;
                             Session["isadmin"] = cmd.Parameters["@IsAdmin"].Value;
+                            Session["username"] = cmd.Parameters["@LoggedInUser"].Value;
                             Response.Redirect("/");
                         } catch(SqlException ex)
                         {

@@ -7,11 +7,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DatabasesAssignment {
-    
-    
-    public partial class SiteMaster {
-        
+namespace DatabasesAssignment
+{
+
+
+    public partial class SiteMaster
+    {
+
+        /// <summary>
+        /// navMyOrders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl navMyOrders;
+
+        /// <summary>
+        /// navCreateOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl navCreateOrder;
+
         /// <summary>
         /// navAdmin control.
         /// </summary>
@@ -20,7 +40,7 @@ namespace DatabasesAssignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl navAdmin;
-        
+
         /// <summary>
         /// navLogout control.
         /// </summary>
@@ -29,7 +49,7 @@ namespace DatabasesAssignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl navLogout;
-        
+
         /// <summary>
         /// navRegister control.
         /// </summary>
@@ -38,7 +58,7 @@ namespace DatabasesAssignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl navRegister;
-        
+
         /// <summary>
         /// navLogin control.
         /// </summary>
@@ -47,7 +67,7 @@ namespace DatabasesAssignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl navLogin;
-        
+
         /// <summary>
         /// MainContent control.
         /// </summary>

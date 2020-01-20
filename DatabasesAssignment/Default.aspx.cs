@@ -14,11 +14,13 @@ namespace DatabasesAssignment
         {
             if(Session["loggedin"] != null)
             {
-                foreach(var obj in Session)
-                {
-                    string objStr = obj.ToString();
-                    Debug.WriteLine(Session[objStr] + " " + Session[objStr].GetType());
-                }
+                loginMessage.Visible = false;
+                userGreet.Visible = true;
+                adminOptions.Visible = (bool)Session["isadmin"];
+            } else
+            {
+                loginMessage.Visible = true;
+                userGreet.Visible = adminOptions.Visible = false;
             }
         }
     }

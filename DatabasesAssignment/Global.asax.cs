@@ -9,7 +9,7 @@ using System.Web.SessionState;
 
 namespace DatabasesAssignment
 {
-    public class Global : HttpApplication
+    public partial class Global : HttpApplication
     {
         void Application_Start(object sender, EventArgs e)
         {

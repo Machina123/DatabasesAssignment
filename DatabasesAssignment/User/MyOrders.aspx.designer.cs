@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DatabasesAssignment.Admin
+namespace DatabasesAssignment.User
 {
 
 
-    public partial class AddPerformer
+    public partial class MyOrders
     {
 
         /// <summary>
@@ -33,21 +33,12 @@ namespace DatabasesAssignment.Admin
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorAlert;
 
         /// <summary>
-        /// perfName control.
+        /// result control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox perfName;
-
-        /// <summary>
-        /// btnAddPerformer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddPerformer;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl result;
     }
 }

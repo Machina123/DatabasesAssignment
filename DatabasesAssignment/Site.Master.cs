@@ -16,11 +16,11 @@ namespace DatabasesAssignment
             if(Session["loggedin"] != null)
             {
                 navRegister.Visible = navLogin.Visible = false;
-                navLogout.Visible = true;
+                navLogout.Visible = navCreateOrder.Visible = navMyOrders.Visible = true;
                 navAdmin.Visible = (bool)Session["isadmin"];
             } else
             {
-                navAdmin.Visible = navLogout.Visible = false;
+                navAdmin.Visible = navLogout.Visible = navCreateOrder.Visible = navMyOrders.Visible = false;
                 navRegister.Visible = navLogin.Visible = true;
             }
         }

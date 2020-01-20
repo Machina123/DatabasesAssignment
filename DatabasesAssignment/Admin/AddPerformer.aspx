@@ -7,9 +7,12 @@
         </div>
     </div>
     <h2>Add new performer</h2>
-    <p>
-        <label for="perfName">Performer name:</label>
-        <asp:TextBox ID="perfName" TextMode="SingleLine" MaxLength="50" runat="server" CssClass="form-control" />
-        <asp:Button ID="btnAddPerformer" runat="server" CssClass="btn btn-success" Text="Add performer"  />
-    </p>
+    <div>
+        <div class="form-group">
+            <label for="perfName">Performer name:</label>
+            <asp:TextBox ID="perfName" TextMode="SingleLine" MaxLength="50" runat="server" CssClass="form-control" />
+            <asp:RequiredFieldValidator ControlToValidate="perfName" runat="server" CssClass="text-danger" ErrorMessage="This field is required" />
+        </div>
+        <asp:Button ID="btnAddPerformer" runat="server" CssClass="btn btn-success" Text="Add performer" />
+    </div>
 </asp:Content>

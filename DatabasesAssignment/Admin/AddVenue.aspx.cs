@@ -10,11 +10,11 @@ using System.Web.UI.WebControls;
 
 namespace DatabasesAssignment.Admin
 {
-    public partial class AddPerformer : System.Web.UI.Page
+    public partial class AddVenue : System.Web.UI.Page
     {
-        SqlConnection conn = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            SqlConnection conn = null;
             if (Session["loggedin"] == null || !(bool)Session["isadmin"])
             {
                 Response.Redirect("/");
@@ -22,16 +22,18 @@ namespace DatabasesAssignment.Admin
             if (IsPostBack)
             {
                 conn = new SqlConnection(ConfigurationManager.ConnectionStrings["alphaConnString"].ConnectionString);
-                if (perfName.Text.Length < 1)
+                if (venueName.Text.Length < 1 || venueAddr.Text.Length < 1 || Convert.ToInt32(venueCap.Text) < 1)
                 {
                     errorContainer.Visible = true;
-                    errorAlert.InnerText = "Performer name cannot be empty!";
+                    errorAlert.InnerText = "Incomplete or wrong Venue data!";
                 }
                 else
                 {
-                    SqlCommand cmd = new SqlCommand("sp_proj_InsertPerformer", conn);
+                    SqlCommand cmd = new SqlCommand("sp_proj_InsertVenue", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@PerformerName", perfName.Text);
+                    cmd.Parameters.AddWithValue("@VenueName", venueName.Text);
+                    cmd.Parameters.AddWithValue("@VenueAddress", venueAddr.Text);
+                    cmd.Parameters.AddWithValue("@Capacity", venueCap.Text);
                     conn.Open();
                     try
                     {

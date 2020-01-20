@@ -46,16 +46,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/">TicketManager</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li id="navMyOrders" runat="server"><a href="~/User/MyOrders" runat="server">My orders</a></li>
+                        <li id="navCreateOrder" runat="server"><a href="~/User/CreateOrder" runat="server">Create order</a></li>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
-                        <li id="navAdmin" runat="server"><a href="~/AdminPanel" runat="server">Admin panel</a></li>
+                        <li id="navAdmin" runat="server"><a href="~/Admin/AdminPanel" runat="server">Admin panel</a></li>
                         <li id="navLogout" runat="server"><a href="~/Logout" runat="server">Logout</a></li>
                         <li id="navRegister" runat="server"><a href="~/Register" runat="server">Register</a></li>
                         <li id="navLogin" runat="server"><a href="~/Login" runat="server">Login</a></li>
