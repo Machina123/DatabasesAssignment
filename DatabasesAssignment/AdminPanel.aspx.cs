@@ -35,7 +35,7 @@ namespace DatabasesAssignment
             eventPerf.DataValueField = "id";
             perfSelect.DataSource = performerDS;
             perfSelect.DataTextField = "performer";
-            perfSelect.DataValueField = "id";              
+            perfSelect.DataValueField = "id";
 
             // data bindings for Venue
             cmd = new SqlCommand("sp_proj_GetVenues", conn);
@@ -59,33 +59,20 @@ namespace DatabasesAssignment
             eventSelect.DataValueField = "id";
 
             updateDataSets();
+            if(!IsPostBack)
+            {
+                Debug.WriteLine("NOT POSTBACK");
+                createViewState();
+            } else
+            {
+                Debug.WriteLine("POSTBACK");
+                restoreViewState();
+            }
         }
 
         protected void btnAddPerformer_Click(object sender, EventArgs e)
         {
-            if (perfName.Text.Length < 1)
-            {
-                errorContainer.Visible = true;
-                errorAlert.InnerText = "Performer name cannot be empty!";
-            } else
-            {
-                SqlCommand cmd = new SqlCommand("sp_proj_InsertPerformer", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@PerformerName", perfName.Text);
-                conn.Open();
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                    updateDataSets();
-                    successContainer.Visible = true;
-                    successAlert.InnerText = "Performer added successfully";
-                } catch(SqlException ex)
-                {
-                    errorContainer.Visible = true;
-                    errorAlert.InnerText = "SQL Error: " + ex.Message;
-                }
-            }
+            
         }
 
         protected void btnAddVenue_Click(object sender, EventArgs e)
@@ -107,7 +94,6 @@ namespace DatabasesAssignment
                 {
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    updateDataSets();
                     successContainer.Visible = true;
                     successAlert.InnerText = "Venue added successfully";
                 }
@@ -121,38 +107,63 @@ namespace DatabasesAssignment
 
         protected void btnAddEvent_Click(object sender, EventArgs e)
         {
+
+            Debug.WriteLine("V:" + eventVenue.SelectedValue + " P:" + eventPerf.SelectedValue);
             SqlCommand cmd = new SqlCommand("sp_proj_CreateEvent", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@VenueId", eventVenue.Value);
-            cmd.Parameters.AddWithValue("@PerformerId", eventPerf.Value);
+            cmd.Parameters.AddWithValue("@VenueId", ViewState["eventVenue"]);
+            cmd.Parameters.AddWithValue("@PerformerId", ViewState["eventPerf"]);
             cmd.Parameters.AddWithValue("@EventTime", DateTime.Parse(eventDate.Text));
-            conn.Open();
             try
             {
+                conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                updateDataSets();
                 successContainer.Visible = true;
                 successAlert.InnerText = "Event added successfully";
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 errorContainer.Visible = true;
-                errorAlert.InnerText = "SQL Error: " + ex.Message;
+                errorAlert.InnerText = "Error: " + ex.Message;
             }
+        }
+
+        protected void eventPerf_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ViewState.Add("eventPerf", eventPerf.SelectedValue);
+        }
+
+        protected void eventVenue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ViewState.Add("eventVenue", eventVenue.SelectedValue);
+        }
+
+        protected void perfSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ViewState.Add("perfSelect", perfSelect.SelectedValue);
+        }
+
+        protected void venueSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ViewState.Add("venueSelect", venueSelect.SelectedValue);
+        }
+
+        protected void eventSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ViewState.Add("eventSelect", eventSelect.SelectedValue);
         }
 
         protected void btnRemovePerformer_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = new SqlCommand("sp_proj_RemovePerformer", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@PerformerId", perfSelect.Value);
+            cmd.Parameters.AddWithValue("@PerformerId", ViewState["perfSelect"]);
             conn.Open();
             try
             {
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                updateDataSets();
                 successContainer.Visible = true;
                 successAlert.InnerText = "Performer deleted successfully";
             }
@@ -167,13 +178,12 @@ namespace DatabasesAssignment
         {
             SqlCommand cmd = new SqlCommand("sp_proj_RemoveVenue", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@VenueId", venueSelect.Value);
+            cmd.Parameters.AddWithValue("@VenueId", ViewState["venueSelect"]);
             conn.Open();
             try
             {
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                updateDataSets();
                 successContainer.Visible = true;
                 successAlert.InnerText = "Venue removed successfully";
             }
@@ -188,13 +198,12 @@ namespace DatabasesAssignment
         {
             SqlCommand cmd = new SqlCommand("sp_proj_RemoveEvent", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@EventId", eventSelect.Value);
+            cmd.Parameters.AddWithValue("@EventId", ViewState["eventSelect"]);
             conn.Open();
             try
             {
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                updateDataSets();
                 successContainer.Visible = true;
                 successAlert.InnerText = "Event removed successfully";
             }
@@ -205,19 +214,40 @@ namespace DatabasesAssignment
             }
         }
 
-        protected void updateDataSets()
+        protected void updateDataSets(bool clearDataSets = false)
         {
-            venueDS.Clear();
+            if (clearDataSets)
+            {
+                venueDS.Clear();
+                eventDS.Clear();
+                performerDS.Clear();
+            }
             venueA.Fill(venueDS);
-            eventDS.Clear();
             eventA.Fill(eventDS);
-            performerDS.Clear();
             performerA.Fill(performerDS);
             eventSelect.DataBind();
             eventPerf.DataBind();
             perfSelect.DataBind();
             eventVenue.DataBind();
             venueSelect.DataBind();
+        }
+
+        protected void createViewState()
+        {
+            ViewState.Add("eventPerf", eventPerf.SelectedValue);
+            ViewState.Add("eventVenue", eventVenue.SelectedValue);
+            ViewState.Add("perfSelect", perfSelect.SelectedValue);
+            ViewState.Add("venueSelect", venueSelect.SelectedValue);
+            ViewState.Add("eventSelect", eventSelect.SelectedValue);
+        }
+
+        protected void restoreViewState()
+        {
+            eventPerf.SelectedValue = ViewState["eventPerf"].ToString();
+            eventVenue.SelectedValue = ViewState["eventVenue"].ToString();
+            perfSelect.SelectedValue = ViewState["perfSelect"].ToString();
+            venueSelect.SelectedValue = ViewState["venueSelect"].ToString();
+            eventSelect.SelectedValue = ViewState["eventSelect"].ToString();
         }
     }
 }

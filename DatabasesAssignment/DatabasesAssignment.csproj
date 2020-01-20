@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminPanel.aspx" />
+    <Content Include="Admin\AddPerformer.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -162,6 +163,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AddPerformer.aspx.cs">
+      <DependentUpon>AddPerformer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddPerformer.aspx.designer.cs">
+      <DependentUpon>AddPerformer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="AdminPanel.aspx.cs">
       <DependentUpon>AdminPanel.aspx</DependentUpon>
@@ -226,7 +234,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

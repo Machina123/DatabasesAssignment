@@ -51,24 +51,6 @@ namespace DatabasesAssignment
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl successAlert;
 
         /// <summary>
-        /// Kontrolka perfName.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox perfName;
-
-        /// <summary>
-        /// Kontrolka btnAddPerformer.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddPerformer;
-
-        /// <summary>
         /// Kontrolka venueName.
         /// </summary>
         /// <remarks>
@@ -111,7 +93,7 @@ namespace DatabasesAssignment
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect eventPerf;
+        protected global::System.Web.UI.WebControls.DropDownList eventPerf;
 
         /// <summary>
         /// Kontrolka eventVenue.
@@ -120,7 +102,7 @@ namespace DatabasesAssignment
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect eventVenue;
+        protected global::System.Web.UI.WebControls.DropDownList eventVenue;
 
         /// <summary>
         /// Kontrolka eventDate.
@@ -147,7 +129,7 @@ namespace DatabasesAssignment
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect perfSelect;
+        protected global::System.Web.UI.WebControls.DropDownList perfSelect;
 
         /// <summary>
         /// Kontrolka btnRemovePerformer.
@@ -165,7 +147,7 @@ namespace DatabasesAssignment
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect venueSelect;
+        protected global::System.Web.UI.WebControls.DropDownList venueSelect;
 
         /// <summary>
         /// Kontrolka btnRemoveVenue.
@@ -183,7 +165,7 @@ namespace DatabasesAssignment
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect eventSelect;
+        protected global::System.Web.UI.WebControls.DropDownList eventSelect;
 
         /// <summary>
         /// Kontrolka btnRemoveEvent.
